@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+
+  div.container
+    div.row
+      h1.text-center= "Edit " + campground.name
+
+      div.form-container
+        form(action=campground.action, method="POST")
+          div.form-group
+            input.form-control(type="text", name="campground[name]", placeholder="Name", value=campground.name)
+          div.form-group
+            input.form-control(type="text", name="campground[image]", placeholder="Image URL", value=campground.image)
+          div.form-group
+            input.form-control(type="text", name="campground[description]", placeholder="Camp Description", value=campground.description)
+          div.form-group
+            button.btn.btn-primary.btn-lg.btn-block Submit!
+
+        a(href="/campgrounds") Go Back

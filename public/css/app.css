@@ -1,0 +1,30 @@
+.row-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inline {
+  display: inline;
+}
+
+.form-container {
+  width: 30%;
+  margin: 25px auto;
+}
+
+.thumbnail {
+  padding: 0;
+}
+
+.thumbnail img {
+  width: 100%;
+}
+
+.thumbnail .caption-full {
+  padding: 10px;
+}
+
+.update-destroy .btn {
+  margin-right: 5px;
+}
+

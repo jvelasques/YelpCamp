@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+
+  div.container
+    header.jumbotron
+      div.container
+        h1 Welcome to YelpCamp
+        p View our hand-picked campgrounds from all over the world
+        p
+          a.btn.btn-primary.btn-lg(href="/campgrounds/new") Add a new campground!
+
+    div.row.text-center.row-flex
+      each camp in campgrounds
+        div.col-md-3.col-sm-6
+          div.thumbnail
+            img(src=camp.image)
+            div.caption
+              h4= camp.name
+            p
+              a.btn.btn-info(href="/campgrounds/" + camp._id) More Info

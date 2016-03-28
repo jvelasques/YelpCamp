@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+  div.container
+    div.col-md-3
+      p.lead YelpCamp
+      div.list-group
+        li.list-group-item.active Info 1
+        li.list-group-item Info 2
+        li.list-group-item Info 3
+
+    div.col-md-9
+      div.thumbnail
+        img.img-responsive(src=campground.image)
+        div.caption-full.update-destroy
+          h4.pull-right $9.00/night
+          h4
+            a= campground.name
+          p= campground.description
+          p
+            em="Submitted By " + campground.author.username
+
+          if currentUser && campground.author.id.equals(currentUser.id)
+            a.btn.btn-warning(href=actions.edit_camp) Edit Campground
+            form.inline(action=actions.delete_camp, method="POST")
+              button.btn.btn-danger Delete
+      div.well
+        div.text-right
+          a.btn.btn-success.btn-sm(href=actions.comment + "new") Add a new comment
+        hr
+        each comment in campground.comments
+          div.row
+            div.col-md-12.update-destroy
+              strong=comment.author.username
+              span.pull-right 10 days ago
+              p= comment.text
+              if currentUser && comment.author.id.equals(currentUser.id)
+                a.btn.btn-warning(href=actions.comment + comment._id + "/edit") Edit
+                form.inline(action=actions.comment + comment._id + "?_method=DELETE", method="POST")
+                  button.btn.btn-danger Delete
+              hr

@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+
+    //link(rel="stylesheet", href="/css/tether.css")
+    link(rel="stylesheet", href="/css/bootstrap.css")
+    link(rel="stylesheet", href="/css/app.css")
+
+    script(src="/js/jQuery.js")
+    //script(src="/js/tether.js")
+    script(src="/js/bootstrap.js")
+
+  body
+
+    nav.navbar.navbar-default
+      div.container-fluid
+        div.navbar-header
+          a.navbar-brand(href="/") YelpCamp
+        div.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            if !currentUser
+              li
+                a(href="/login") Login
+              li
+                a(href="/register") Sign Up
+            else
+              li
+                a(href="#")="Welcome " + currentUser.username
+              li
+                a(href="/logout") Logout
+
+    block content
+
+    //p TradeMark YelpCamp 2016

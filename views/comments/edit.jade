@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+
+  div.container
+    div.row
+      h1.text-center Edit Comment
+
+      div.form-container
+        form(action=actions.edit, method="POST")
+          div.form-group
+            input.form-control(type="text", name="comment[text]", placeholder="Insert Comment...", value=comment.text)
+          div.form-group
+            button.btn.btn-primary.btn-lg.btn-block Submit!
+
+        a(href=actions.back) Go Back

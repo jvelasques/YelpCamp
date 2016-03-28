@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+
+  div.container
+    div.row
+      h1.text-center=info.title
+
+      div.form-container
+        form(action=info.action, method="POST")
+          div.form-group
+            input.form-control(type="text", name="comment[text]", placeholder="Insert Comment")
+          div.form-group
+            button.btn.btn-primary.btn-lg.btn-block Submit!
+
+        a(href="/campgrounds") Go Back

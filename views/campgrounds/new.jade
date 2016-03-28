@@ -1,0 +1,20 @@
+extends ../layout
+
+block content
+
+  div.container
+    div.row
+      h1.text-center Create a New Campground
+
+      div.form-container
+        form(action="/campgrounds", method="POST")
+          div.form-group
+            input.form-control(type="text", name="campground[name]", placeholder="Name")
+          div.form-group
+            input.form-control(type="text", name="campground[image]", placeholder="Image URL")
+          div.form-group
+            input.form-control(type="text", name="campground[description]", placeholder="Camp Description")
+          div.form-group
+            button.btn.btn-primary.btn-lg.btn-block Submit!
+
+        a(href="/campgrounds") Go Back
